@@ -23,7 +23,7 @@ int main() { // range [0, 9'999]
     } else if (number.length() == 3) { // < 1'000
         std::cout << getHundredsNumberName(number) << std::endl;
 
-    } else if (number.length() == 4) { // 10'000
+    } else if (number.length() == 4) { // < 10'000
         std::cout << getThousandsNumberName(number) << std::endl;
 
     } else {
