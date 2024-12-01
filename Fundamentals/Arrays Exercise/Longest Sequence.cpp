@@ -8,7 +8,7 @@ using std::cout;
 
 
 int main() {
-    std::vector<std::pair<int, int> > sequences;
+    std::vector<std::pair<int, int>> sequences;
 
     int arrSize;
     std::cin >> arrSize;
