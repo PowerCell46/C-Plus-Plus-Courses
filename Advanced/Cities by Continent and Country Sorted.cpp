@@ -5,7 +5,7 @@
 #include <algorithm>
 
 
-std::string joinAmdOrderStringVector(std::vector<std::string> &stringVector);
+std::string joinAndOrderStringVector(std::vector<std::string> &stringVector);
 
 
 int main() {
@@ -46,7 +46,7 @@ int main() {
         for (auto countriesIter = continentsIter->second.begin(); countriesIter != continentsIter->second.end(); countriesIter++) {
             resultStream << "  " << countriesIter->first << " -> ";
 
-            resultStream << joinAmdOrderStringVector(countriesIter->second) << '\n';
+            resultStream << joinAndOrderStringVector(countriesIter->second) << '\n';
         }
     }
 
@@ -56,7 +56,7 @@ int main() {
 }
 
 
-std::string joinAmdOrderStringVector(std::vector<std::string> &stringVector) {
+std::string joinAndOrderStringVector(std::vector<std::string> &stringVector) {
     std::sort(stringVector.begin(), stringVector.end());
 
     std::stringstream resultStream{};
