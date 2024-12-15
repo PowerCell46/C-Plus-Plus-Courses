@@ -8,6 +8,8 @@
 #define MOVE_COMMAND 'M'
 #define LEAVE_COMMAND 'L'
 #define END_COMMAND "E"
+#define EMPTY_WAGON "empty"
+#define WAGON_PRINT_SEPARATOR '|'
 
 
 std::string printTrainWagons(const std::vector<std::string> &train);
@@ -69,9 +71,9 @@ std::string printTrainWagons(const std::vector<std::string> &train) {
     std::stringstream resultStream{};
 
     for (const std::string &wagon: train) {
-        resultStream << '|' << (wagon != "empty" ? wagon : " ");
+        resultStream << WAGON_PRINT_SEPARATOR << (wagon != EMPTY_WAGON ? wagon : " ");
     }
-    resultStream << '|';
+    resultStream << WAGON_PRINT_SEPARATOR;
 
     return resultStream.str();
 }
