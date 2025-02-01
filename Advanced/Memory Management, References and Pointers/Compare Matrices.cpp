@@ -55,6 +55,8 @@ int main() {
             currentLineStream >> secondMatrix[i][j];
     }
 
+    /**************************************/
+
     if ( // If the two Matrices have the same sizes
         firstMatrixRows == secondMatrixRows &&
         firstMatrixColumns == secondMatrixColumns
