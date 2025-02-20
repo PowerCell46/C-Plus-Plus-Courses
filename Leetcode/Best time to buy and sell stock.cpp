@@ -34,3 +34,44 @@ public:
         return biggestStockProfit;
     }
 };
+
+/*
+class Solution {
+public:
+    int maxProfit(vector<int> &prices) {
+        int biggestStockProfit = 0;
+
+        if (prices.size() == 1)
+            return biggestStockProfit;
+
+        auto mostExpensiveStockPrice = std::max_element(prices.begin(), prices.end());
+
+        auto cheapestPriceBeforeBiggestPrice = std::min_element(prices.begin(), mostExpensiveStockPrice);
+
+        if (cheapestPriceBeforeBiggestPrice != prices.end())
+            biggestStockProfit = std::max(*mostExpensiveStockPrice - *cheapestPriceBeforeBiggestPrice,
+                                          biggestStockProfit);
+
+
+        auto cheapestStockPrice = std::min_element(prices.begin(), prices.end());
+
+        auto highestPriceAfterSmallestPrice = std::max_element(cheapestStockPrice + 1, prices.end());
+
+        if (highestPriceAfterSmallestPrice != prices.end())
+            biggestStockProfit = std::max(*highestPriceAfterSmallestPrice - *cheapestStockPrice, biggestStockProfit);
+
+
+        if (mostExpensiveStockPrice + 1 != prices.end() && mostExpensiveStockPrice < cheapestStockPrice) {
+            std::vector<int> slicedVector(mostExpensiveStockPrice + 1, cheapestStockPrice);
+
+            for (int i = 0; i < slicedVector.size(); ++i)
+                for (int j = i + 1; j < slicedVector.size(); ++j)
+                    if (const int currentMadeProfit = slicedVector.at(j) - slicedVector.at(i);
+                        currentMadeProfit > biggestStockProfit)
+                        biggestStockProfit = currentMadeProfit;
+        }
+
+        return biggestStockProfit;
+    }
+};
+*/
