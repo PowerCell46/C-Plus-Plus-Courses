@@ -16,7 +16,7 @@ public:
             ++rIter;
         }
 
-        for (char c : s)
-            std::cout << c;
+        // for (char c : s)
+        //     std::cout << c;
     }
 };
