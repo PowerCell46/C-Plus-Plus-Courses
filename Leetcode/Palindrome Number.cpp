@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+#include <sstream>
+
 class Solution {
 public:
     bool isPalindrome(int x) {
@@ -19,3 +23,12 @@ public:
         return true;
     }
 };
+
+int main() {
+
+    Solution s;
+
+    std::cout << s.isPalindrome(1201);
+
+    return 0;
+}
