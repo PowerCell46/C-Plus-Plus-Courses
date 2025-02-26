@@ -1,3 +1,18 @@
+int binarySearch(const std::vector<int>& numbers, const int& searchedNumber, int beginI, int endI) {
+    const int middleI = (endI + beginI) / 2;
+    
+    if (searchedNumber == numbers.at(middleI))
+        return middleI;
+    
+    if (searchedNumber < numbers.at(middleI))
+        endI = middleI;
+
+    if (searchedNumber > numbers.at(middleI))
+        beginI = middleI;
+    
+    return binarySearch(numbers, searchedNumber, beginI, endI);
+}
+
 class Solution {
 public:
     int search(vector<int> &nums, int target) {
