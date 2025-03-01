@@ -7,7 +7,7 @@
 #define DOT '.'
 #define EMPTY_CONTENT "---"
 
-// Singleton class
+// Singleton Class with private methods for the mainLogic()
 class Letters {
     Letters() = default;
 
