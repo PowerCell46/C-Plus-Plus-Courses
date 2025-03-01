@@ -7,7 +7,7 @@
 #define BEGIN_TO_RUST_CELL '!'
 #define TEMP_RUST_CELL '-'
 
-
+// Singleton Class with private methods for the mainLogic()
 class Rust {
     Rust() = default;
 
