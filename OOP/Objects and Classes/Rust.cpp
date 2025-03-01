@@ -8,21 +8,26 @@
 #define TEMP_RUST_CELL '-'
 
 
-int main() {
-    char** matrix = new char*[10];
-    for (int i = 0; i < MATRIX_SIZE; ++i) {
-        matrix[i] = new char[i];
+class Rust {
+    Rust() = default;
 
-        for (int j = 0; j < MATRIX_SIZE; ++j)
-            std::cin >> matrix[i][j];
+    ~Rust() = default;
+
+    char** initMatrix() {
+        char** matrix = new char*[10];
+        // Initialize the matrix
+        for (int i = 0; i < MATRIX_SIZE; ++i) {
+            matrix[i] = new char[i];
+
+            for (int j = 0; j < MATRIX_SIZE; ++j)
+                std::cin >> matrix[i][j];
+        }
+        
+        return matrix;
     }
 
-    int cycles;
-    std::cin >> cycles;
-
-
-    for (int cycle = 0; cycle < cycles; ++cycle) {
-
+    void rustCycle(char** matrix) {
+        // Search for BEGIN_TO_RUST_CELL and place TEMP_RUST_CELL to the surrounding ones
         for (int i = 0; i < MATRIX_SIZE; ++i) {
             for (int j = 0; j < MATRIX_SIZE; ++j) {
                 if (matrix[i][j] == BEGIN_TO_RUST_CELL) {
@@ -38,21 +43,52 @@ int main() {
             }
         }
 
+        // Replace the TEMP_RUST_CELLs with BEGIN_TO_RUST_CELLs
         for (int i = 0; i < MATRIX_SIZE; ++i)
             for (int j = 0; j < MATRIX_SIZE; ++j)
                 if (matrix[i][j] == TEMP_RUST_CELL)
                     matrix[i][j] = BEGIN_TO_RUST_CELL;
     }
 
-    for (int i = 0; i < 10; ++i) {
-        for (int j = 0; j < MATRIX_SIZE; ++j)
-            std::cout << matrix[i][j];
-        std::cout << '\n';
-        delete matrix[i];
+    void printAndDeleteMatrix(char** matrix) {
+        for (int i = 0; i < 10; ++i) {
+            for (int j = 0; j < MATRIX_SIZE; ++j)
+                std::cout << matrix[i][j];
+            std::cout << '\n';
+            delete matrix[i];
+        }
+        
+        delete[] matrix;
     }
 
-    delete[] matrix;
+public:
+    void mainLogic() {
+        char** matrix = initMatrix();
+
+        int cycles;
+        std::cin >> cycles;
+        
+        for (int cycle = 0; cycle < cycles; ++cycle)
+            rustCycle(matrix);
+        
+        printAndDeleteMatrix(matrix);      
+    }
+    
+    Rust(const Rust&) = delete;
+
+    Rust& operator=(const Rust&) = delete;
+
+    static Rust& getInstance() {
+        static Rust instance;
+        return instance;
+    }
+};
+
+
+int main() {
+   Rust& rust = Rust::getInstance();
+
+    rust.mainLogic();
 
     return 0;
 }
-
