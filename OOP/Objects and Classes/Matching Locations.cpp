@@ -4,7 +4,7 @@
 
 #define DOT_STR "."
 
-
+// Singleton Class with private methods for the mainLogic()
 class MatchingLocations {
     MatchingLocations() = default;
 
