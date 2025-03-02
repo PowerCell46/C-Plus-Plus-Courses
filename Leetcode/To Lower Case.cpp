@@ -11,7 +11,8 @@ public:
         std::stringstream resultStream{};
 
         for (const char& ch : s)
-            resultStream << static_cast<char>((ch >= 65 && ch <= 90) ? ch + 32 : ch);
+            resultStream << (char) (std::isalpha(ch) ? (ch | 32) : ch); // Logical OR
+            // resultStream << static_cast<char>((ch >= 65 && ch <= 90) ? ch + 32 : ch);
 
         return resultStream.str();
     }
