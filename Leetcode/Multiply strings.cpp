@@ -49,7 +49,6 @@ public:
         for (std::string& line : multiplicationLines)
             line = std::string(maxLength - line.size(), '0') + line;
 
-
         std::stringstream finalMultiplicationStream{};
 
         int previousIncrement = 0;
@@ -85,8 +84,8 @@ int main() {
     Solution s;
 
     // std::cout << s.multiply("9133", "0");
-    std::cout << s.multiply("120", "100");
-    // std::cout << s.multiply("123", "456");
+    // std::cout << s.multiply("120", "100");
+    std::cout << s.multiply("123", "456");
 
     return 0;
 }
