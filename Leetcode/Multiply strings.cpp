@@ -53,6 +53,7 @@ public:
         std::stringstream finalMultiplicationStream{};
 
         int previousIncrement = 0;
+        // Sum the lines in reverse order
         for (int i = maxLength - 1; i >= 0; --i) {
             int currentSum = previousIncrement;
 
@@ -70,9 +71,11 @@ public:
         if (previousIncrement != 0)
             finalMultiplicationStream << previousIncrement;
 
+        // Reverse the result, in order to be valid
         std::string finalResultMultiplicationString = finalMultiplicationStream.str();
         std::reverse(finalResultMultiplicationString.begin(), finalResultMultiplicationString.end());
 
+        // If the first char is 0, return directly 0
         return finalResultMultiplicationString[0] != '0' ? finalResultMultiplicationString : "0";
     }
 };
