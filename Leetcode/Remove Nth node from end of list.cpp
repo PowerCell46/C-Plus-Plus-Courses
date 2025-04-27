@@ -39,6 +39,7 @@ class Solution {
 
             return first ? first : node;
         }
+        
         ++currentReverseIndex;
         return first;
     }
