@@ -40,7 +40,7 @@ TreeNode* generateBinaryTree(const int* array, const int& arraySize) {
 
 using std::vector;
 
-
+// Current, Left Child, Right Child
 class Solution {
     void preorder(TreeNode* node, std::vector<int>& resultVector) {
         if (node) {
