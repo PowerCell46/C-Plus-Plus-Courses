@@ -11,7 +11,7 @@ public:
         this->files.push_back(obj);
     }
 
-    ~Directory() override = default; // TODO: ???
+    ~Directory() override = default;
 
     size_t getSize() const override {
         size_t sumOfSizes{};
