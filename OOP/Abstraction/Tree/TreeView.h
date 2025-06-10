@@ -34,7 +34,7 @@ void printDirectory(const std::shared_ptr<FileSystemObjectsContainer>& directory
     for (const std::pair<const std::string, std::shared_ptr<FileSystemObject>>& objectsMap : fileObjectsMap) {
         resultStream << repeatString("--->", ident) << objectsMap.first << '\n';
 
-        if (const std::shared_ptr<Directory> dir = std::dynamic_pointer_cast<Directory>(objectsMap.second))
+        if (const std::shared_ptr<FileSystemObjectsContainer> dir = std::dynamic_pointer_cast<FileSystemObjectsContainer>(objectsMap.second))
             printDirectory(dir, ident + 1, resultStream);
     }
 }
